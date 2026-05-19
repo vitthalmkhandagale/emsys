@@ -2,6 +2,7 @@ package com.employeemanagementsystem.ems_backend.service.impl;
 
 import com.employeemanagementsystem.ems_backend.dto.EmployeeDto;
 import com.employeemanagementsystem.ems_backend.entity.Employee;
+import com.employeemanagementsystem.ems_backend.exception.ResourseNotFoundException;
 import com.employeemanagementsystem.ems_backend.mapper.EmployeeMapper;
 
 import com.employeemanagementsystem.ems_backend.repository.EmployeeRepository;
@@ -22,5 +23,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = EmployeeMapper.mapToEmployee(employeeDto);
         Employee savedEmployee = employeeRepository.save(employee);
         return EmployeeMapper.mapToEmployeeDto(savedEmployee);
+    }
+
+    @Override
+    public EmployeeDto getEmployeeById(Long employeeId) {
+
+        Employee employee = employeeRepository.findById(employeeId).orElseThrow(()->
+                new ResourseNotFoundException("Employee is not exist with given Id : "+ employeeId));
+        return EmployeeMapper.mapToEmployeeDto(employee);
     }
 }
