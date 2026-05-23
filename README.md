@@ -57,22 +57,71 @@ A Full Stack Employee Management System developed using:
 
 ---
 
-# Project Structure
+# 📸 Application Architecture
 
-```bash
-EmployeeManagementSystem
-│
-├── ems-backend
-│   ├── src
-│   ├── Dockerfile
-│   └── pom.xml
-│
-├── ems-frontend
-│   ├── src
-│   ├── public
-│   ├── Dockerfile
-│   └── package.json
-│
-├── docker-compose.yml
-│
-└── README.md
+```text
++----------------------+
+|   User Browser       |
++----------+-----------+
+           |
+           | Access Application
+           |
++----------v-----------+
+|    React Frontend    |
+|      Port: 3000      |
+|  React + Axios + UI  |
++----------+-----------+
+           |
+           | Axios HTTP Requests
+           |
++----------v-----------+
+|   Spring Boot API    |
+|      Port: 8080      |
+| REST Controllers/API |
++----------+-----------+
+           |
+           | JPA / Hibernate
+           |
++----------v-----------+
+|      MySQL DB        |
+|      Port: 3306      |
++----------------------+
+
+```
+
+# 🐳 Docker Architecture
+
+```text
++------------------------------------------------------+
+|                 Docker Compose                       |
++------------------------------------------------------+
+            |                  |                 |
+            |                  |                 |
++-----------v------+  +--------v-------+  +------v------+
+|  ems-frontend    |  |  ems-backend   |  |   mysql-db  |
+|     ReactJS      |  |  Spring Boot   |  |    MySQL    |
+|    Port: 3000    |  |   Port: 8080   |  |  Port: 3306 |
++-----------+------+  +--------+-------+  +-------------+
+            |                  |
+            | Axios API Calls  |
+            +------------------+
+```
+---
+
+# 📌 Future Improvements
+
+- JWT Authentication
+- Role Based Access
+- Swagger Documentation
+- CI/CD Pipeline
+- Kubernetes Deployment
+- Cloud Deployment (AWS)
+
+---
+
+# 👨‍💻 Author
+
+Sameer Dhumal
+
+GitHub:
+https://github.com/SameerDhumal08
