@@ -10,17 +10,62 @@ const EmployeeComponent = () => {
 
   const navigator = useNavigate();
 
+  const [errors, setErrors] = useState({
+    firstName:'',
+    lastName:'',
+    email:''
+  })
+
     function saveEmployee(e)
     {
         e.preventDefault();
 
-        const employee = {firstName,lastName,email}
-        console.log(employee);
+        if(validateForm)
+        {
+            const employee = {firstName,lastName,email}
+            console.log(employee);
 
-        createEmployee(employee).then((response)=>{
+            createEmployee(employee).then((response)=>{
             console.log(response.data);
             navigator('/employees')
         })
+        }
+
+    }
+
+    function validateForm(){
+        let valid = true;
+
+        const errorsCopy = {... errors}
+
+        if(firstName.trim()){
+            errorsCopy.firstName = '';
+        }
+        else
+        {
+            errorsCopy.firstName = 'First name is required';
+            valid  = false;
+        }
+        if(lastName.trim()){
+            errorsCopy.lastName = '';
+        }
+        else
+        {
+            errorsCopy.lastName = 'Last name is required';
+            valid  = false;
+        }
+        if(email.trim()){
+            errorsCopy.email = '';
+        }
+        else
+        {
+            errorsCopy.email = 'Email is required';
+            valid  = false;
+        }
+
+        setErrors(errorsCopy);
+
+        return valid;
     }
 
   return (
