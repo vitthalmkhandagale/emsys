@@ -9,6 +9,8 @@ import com.employeemanagementsystem.ems_backend.service.DepartmentService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 @AllArgsConstructor
@@ -31,5 +33,15 @@ public class DepartmentServiceImpl implements DepartmentService {
                         new ResourseNotFoundException("Department not found with this id: "+departmentId));
 
         return DepartmentMapper.maptoDepartmentDto(department);
+    }
+
+    @Override
+    public List<DepartmentDto> getAllDepartments() {
+        List<Department> departments =
+                departmentRepository.findAll();
+
+        return departments.stream()
+                .map(DepartmentMapper::maptoDepartmentDto)
+                .toList();
     }
 }

@@ -1,13 +1,13 @@
 package com.employeemanagementsystem.ems_backend.controller;
 
 import com.employeemanagementsystem.ems_backend.dto.DepartmentDto;
-import com.employeemanagementsystem.ems_backend.entity.Department;
-import com.employeemanagementsystem.ems_backend.mapper.DepartmentMapper;
 import com.employeemanagementsystem.ems_backend.service.DepartmentService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @RestController
@@ -31,5 +31,13 @@ public class DepartmentController {
         return ResponseEntity.ok(departmentDto);
     }
 
+    @GetMapping("/")
+    public ResponseEntity<List<DepartmentDto>> getAllDepartments() {
+
+        List<DepartmentDto> departments =
+                departmentService.getAllDepartments();
+
+        return ResponseEntity.ok(departments);
+    }
 
 }
