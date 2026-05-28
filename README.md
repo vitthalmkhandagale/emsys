@@ -56,7 +56,40 @@ A Full Stack Employee Management System developed using:
 - JPA Repository
 
 ---
+# 📸 Application Screenshots
 
+## Employee List Page
+
+<p align="center">
+  <img width="1913" height="901" alt="allemployees" src="https://github.com/user-attachments/assets/6f1f0b95-1a02-492b-b536-df8e87bab185" />
+
+</p>
+
+---
+
+## Add Employee Page
+
+<p align="center">
+  <img src="" width="900"/>
+</p>
+
+---
+
+## Update Employee Page
+
+<p align="center">
+  <img src="" width="900"/>
+</p>
+
+---
+
+## Docker Containers Running
+
+<p align="center">
+  <img src="" width="900"/>
+</p>
+
+---
 # 📸 Application Architecture
 
 ```text
