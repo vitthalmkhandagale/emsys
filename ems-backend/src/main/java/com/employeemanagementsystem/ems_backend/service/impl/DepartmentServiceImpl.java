@@ -2,6 +2,7 @@ package com.employeemanagementsystem.ems_backend.service.impl;
 
 import com.employeemanagementsystem.ems_backend.dto.DepartmentDto;
 import com.employeemanagementsystem.ems_backend.entity.Department;
+import com.employeemanagementsystem.ems_backend.exception.ResourseNotFoundException;
 import com.employeemanagementsystem.ems_backend.mapper.DepartmentMapper;
 import com.employeemanagementsystem.ems_backend.repository.DepartmentRepository;
 import com.employeemanagementsystem.ems_backend.service.DepartmentService;
@@ -20,5 +21,15 @@ public class DepartmentServiceImpl implements DepartmentService {
         Department department = DepartmentMapper.maptoDepartment(departmentDto);
         Department savedDepartment = departmentRepository.save(department);
         return DepartmentMapper.maptoDepartmentDto(savedDepartment);
+    }
+
+    @Override
+    public DepartmentDto getDepartmentById(Long departmentId) {
+        Department department = departmentRepository
+                .findById(departmentId)
+                .orElseThrow(() ->
+                        new ResourseNotFoundException("Department not found with this id: "+departmentId));
+
+        return DepartmentMapper.maptoDepartmentDto(department);
     }
 }
