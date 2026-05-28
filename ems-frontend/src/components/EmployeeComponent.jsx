@@ -30,7 +30,7 @@ const EmployeeComponent = () => {
         })
     }
   }, [id])
-  
+
     function saveOrUpdateEmployee(e)
     {
         e.preventDefault();
@@ -159,6 +159,7 @@ const EmployeeComponent = () => {
                         </div>
                         
                         <button type="button" className="btn btn-success" onClick={saveOrUpdateEmployee}>Submit</button>
+                        
                     </form>
                 </div>
             </div>
