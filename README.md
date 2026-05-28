@@ -70,7 +70,8 @@ A Full Stack Employee Management System developed using:
 ## Add Employee Page
 
 <p align="center">
-  <img src="" width="900"/>
+  <img width="1918" height="911" alt="addems" src="https://github.com/user-attachments/assets/a6936102-9fcd-4d90-ad62-620da27c09e3" />
+
 </p>
 
 ---
@@ -78,7 +79,8 @@ A Full Stack Employee Management System developed using:
 ## Update Employee Page
 
 <p align="center">
-  <img src="" width="900"/>
+  <img width="1919" height="910" alt="updateems" src="https://github.com/user-attachments/assets/3add2aa1-2ffa-4b2a-9f1d-73114db3b564" />
+
 </p>
 
 ---
