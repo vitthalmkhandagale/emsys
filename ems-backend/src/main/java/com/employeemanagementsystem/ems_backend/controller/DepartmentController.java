@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/departments")
@@ -31,7 +32,7 @@ public class DepartmentController {
         return ResponseEntity.ok(departmentDto);
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<DepartmentDto>> getAllDepartments() {
 
         List<DepartmentDto> departments =
