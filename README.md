@@ -85,6 +85,25 @@ A Full Stack Employee Management System developed using:
 
 ---
 
+## Add Department Page
+
+<p align="center">
+  <img width="1919" height="914" alt="Screenshot 2026-05-30 091333" src="https://github.com/user-attachments/assets/15ab0601-2e0c-4f7b-8756-09b2fed16905" />
+ />
+
+</p>
+
+---
+
+## Update Employee Page
+
+<p align="center">
+  <img width="1919" height="910" alt="updateems" src="https://github.com/user-attachments/assets/3add2aa1-2ffa-4b2a-9f1d-73114db3b564" />
+
+</p>
+
+---
+
 ## Docker Containers Running
 
 <p align="center">
