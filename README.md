@@ -84,7 +84,14 @@ A Full Stack Employee Management System developed using:
 </p>
 
 ---
+## Department List Page
 
+<p align="center">
+<img width="1911" height="925" alt="Screenshot 2026-05-30 091317" src="https://github.com/user-attachments/assets/c02f8df4-2a9a-46a3-847d-25b23a521a7a" />
+
+</p>
+
+---
 ## Add Department Page
 
 <p align="center">
@@ -95,10 +102,10 @@ A Full Stack Employee Management System developed using:
 
 ---
 
-## Update Employee Page
+## Update Department Page
 
 <p align="center">
-  <img width="1919" height="910" alt="updateems" src="https://github.com/user-attachments/assets/3add2aa1-2ffa-4b2a-9f1d-73114db3b564" />
+<img width="1919" height="917" alt="Screenshot 2026-05-30 091403" src="https://github.com/user-attachments/assets/be97eb88-c099-4c7f-b28b-26a47581408f" />
 
 </p>
 
