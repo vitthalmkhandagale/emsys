@@ -27,6 +27,23 @@ const ListDepartmentComponent = () => {
         navigator('/add-department');
     }
 
+     function updateDepartment(id){
+            navigator(`/edit-department/${id}`);
+        }
+    
+        function removeDepartment(id)
+        {
+            console.log(id);
+    
+            deleteDepartment(id).then((response) => {
+    
+                getAllDepartment();
+    
+            }).catch(error => {
+                console.error(error);
+            })
+            
+        }
 
   return (
 
@@ -40,6 +57,7 @@ const ListDepartmentComponent = () => {
                     <th>Department Id</th>
                     <th>Department Name</th>
                     <th>Department Description</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,6 +67,11 @@ const ListDepartmentComponent = () => {
                         <td>{department.id}</td>
                         <td>{department.departmentName}</td>
                         <td>{department.departmentDescription}</td>
+                        <td>
+                            <button className='btn btn-info' onClick={() => updateDepartment(department.id)}>Update</button>
+                            <button type="button" className="btn btn-danger" onClick={() => removeDepartment(department.id)}
+                             style={{marginLeft: '10px'}}>Delete</button>
+                        </td>
                     </tr>))
                 
                 }
