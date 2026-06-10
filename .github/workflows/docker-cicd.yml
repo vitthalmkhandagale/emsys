@@ -1,0 +1,23 @@
+name: Docker CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Build Backend Docker Image
+        run: docker build -t ems-backend ./ems-backend
+
+      - name: Build Frontend Docker Image
+        run: docker build -t ems-frontend ./ems-frontend
+
+      - name: List Docker Images
+        run: docker images
