@@ -1,23 +1,49 @@
-name: Docker CI
+name: Docker CI/CD
 
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout source code
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      # Login to Docker Hub
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # Build Backend Docker Image
       - name: Build Backend Docker Image
-        run: docker build -t ems-backend ./ems-backend
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/ems-backend:latest ./ems-backend
 
+      # Build Frontend Docker Image
       - name: Build Frontend Docker Image
-        run: docker build -t ems-frontend ./ems-frontend
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/ems-frontend:latest ./ems-frontend
 
+      # List Docker Images (optional)
       - name: List Docker Images
         run: docker images
+
+      # Push Backend Image to Docker Hub
+      - name: Push Backend Image
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/ems-backend:latest
+
+      # Push Frontend Image to Docker Hub
+      - name: Push Frontend Image
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/ems-frontend:latest
